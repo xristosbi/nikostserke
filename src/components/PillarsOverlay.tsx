@@ -39,8 +39,14 @@ export function PillarsOverlay({ triggerId }: { triggerId: string }) {
           const el = refs.current[i];
           if (!el) return;
           const center = seg * i + seg / 2;
-          const dist = Math.abs(self.progress - center);
-          const opacity = Math.max(0, 1 - dist / (seg * 0.65));
+          const isLast = i === PILLARS.length - 1;
+          let opacity: number;
+          if (isLast && self.progress > center) {
+            opacity = 1;
+          } else {
+            const dist = Math.abs(self.progress - center);
+            opacity = Math.max(0, 1 - dist / (seg * 0.65));
+          }
           el.style.opacity = String(opacity);
           el.style.transform = `translateY(${(1 - opacity) * 16}px)`;
         });

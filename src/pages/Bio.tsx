@@ -1,5 +1,6 @@
 import { VideoScrubSection } from '../lib/VideoScrubSection';
 import { StagedReveal } from '../components/StagedReveal';
+import { CtaBlock } from '../components/CtaBlock';
 
 const STAGES = [
   {
@@ -73,6 +74,8 @@ export function Bio() {
           )}
         </StagedReveal>
       </VideoScrubSection>
+
+      <CtaBlock />
     </div>
   );
 }

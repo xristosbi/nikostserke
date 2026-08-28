@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#c9a15a" stroke-width="1.5" opacity="0.5"/>
+  <text x="60" y="70" text-anchor="middle" font-family="Oswald, Arial Narrow, sans-serif" font-size="34" font-weight="700" fill="#eecb84">RG</text>
+</svg>

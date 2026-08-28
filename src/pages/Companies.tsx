@@ -2,20 +2,24 @@ import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { VideoScrubSection } from '../lib/VideoScrubSection';
+import { CtaBlock } from '../components/CtaBlock';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const COMPANIES = [
   {
     name: 'Recycle Greece',
+    logo: '/images/logos/recycle-greece.svg',
     desc: 'Ανακύκλωση και κυκλική οικονομία από το 2003, με πιστοποιημένα υλικά και επισκέψιμο πάρκο ανακύκλωσης.',
   },
   {
     name: 'DELOS Energy',
+    logo: '/images/logos/delos-energy.svg',
     desc: 'Διαχείριση μη επικίνδυνων στερεών αποβλήτων και πράσινη ενεργειακή αξιοποίηση.',
   },
   {
     name: 'MYAETOS Luxury Housing',
+    logo: '/images/logos/myaetos.svg',
     desc: 'Ανάπτυξη πολυτελών κατοικιών στη Χαλκιδική, με Golden Visa και τεχνική καθετοποίηση από το εργοτάξιο έως την παράδοση.',
   },
 ];
@@ -61,12 +65,15 @@ export function Companies() {
           {COMPANIES.map((c, i) => (
             <div className="company-card" key={c.name}>
               <div className="company-card__index">{String(i + 1).padStart(2, '0')}</div>
+              <img className="company-card__logo" src={c.logo} alt={`Λογότυπο ${c.name}`} />
               <h3 className="company-card__name">{c.name}</h3>
               <p className="company-card__desc">{c.desc}</p>
             </div>
           ))}
         </div>
       </section>
+
+      <CtaBlock />
     </div>
   );
 }
