@@ -80,6 +80,8 @@ button {
 
 .gold-text {
   color: var(--gold);
+  -webkit-text-stroke: 0.015em rgba(7, 6, 10, 0.55);
+  text-stroke: 0.015em rgba(7, 6, 10, 0.55);
 }
 
 .container {
@@ -299,6 +301,19 @@ button {
   display: inline-block;
 }
 
+/* ---------- display heading outline (shared across all big headings) ---------- */
+
+.kinetic-title,
+.section-title,
+.finale__heading,
+.cta__heading,
+.pillar__name,
+.gallery__caption {
+  -webkit-text-stroke: 0.015em rgba(201, 161, 90, 0.5);
+  text-stroke: 0.015em rgba(201, 161, 90, 0.5);
+  paint-order: stroke fill;
+}
+
 .hero-subtitle {
   margin-top: 1.5rem;
   font-family: var(--font-body);
@@ -473,7 +488,8 @@ button {
 }
 
 .bio-stage__text {
-  color: var(--cream-dim);
+  color: var(--cream);
+  font-weight: 400;
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   line-height: 1.75;
 }
