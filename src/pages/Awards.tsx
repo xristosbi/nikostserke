@@ -7,24 +7,28 @@ const SLIDES = [
     caption: 'Στήριξη ιδρυμάτων, κοινωνικών φορέων και ανθρωπιστικών δράσεων.',
     boxes: ['Ίδρυμα «Ελπίδα»'],
     img: '/images/awards/hero-social.jpg',
+    imgPosition: '50% 18%',
   },
   {
     category: 'Διεθνείς Επαφές',
     caption: 'Αναγνώριση σε περιβάλλοντα υψηλού κύρους στην Ελλάδα και το εξωτερικό.',
     boxes: ['AHEPA Hellas'],
     img: '/images/awards/hero-international.jpg',
+    imgPosition: '50% 12%',
   },
   {
     category: 'Περιβάλλον & Επιχειρηματικότητα',
     caption: 'Βράβευση επιχειρηματικής αριστείας από το Επιμελητήριο Χαλκιδικής.',
     boxes: ['Επιμελητήριο Χαλκιδικής', 'Recycle Greece'],
     img: '/images/awards/hero-environment.jpg',
+    imgPosition: '50% 15%',
   },
   {
     category: 'Θεσμική Στήριξη',
     caption: 'Τιμητική διάκριση από την Ελληνική Αστυνομία, Διεύθυνση Χαλκιδικής.',
     boxes: ['Ελληνική Αστυνομία', 'Διεύθυνση Χαλκιδικής'],
     img: '/images/awards/hero-institutional.jpg',
+    imgPosition: '50% 22%',
   },
 ];
 
@@ -65,7 +69,7 @@ export function Awards() {
       <div className="gallery">
         {SLIDES.map((s, i) => (
           <div className={`gallery__slide ${i === index ? 'active' : ''}`} key={s.category}>
-            <img className="gallery__img" src={s.img} alt={s.category} />
+            <img className="gallery__img" src={s.img} alt={s.category} style={{ objectPosition: s.imgPosition }} />
             <div className="gallery__scrim" />
             <div className="gallery__content">
               <div className="eyebrow">{s.category}</div>

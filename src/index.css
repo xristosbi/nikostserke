@@ -452,6 +452,31 @@ button {
   overflow-wrap: break-word;
 }
 
+/* ---------- bio: top photo section ---------- */
+
+.bio-photo {
+  position: relative;
+  z-index: 2;
+  padding: clamp(6.5rem, 14vw, 10rem) 0 clamp(2rem, 5vw, 3.5rem);
+}
+
+.bio-photo__frame {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 6px;
+  border: 1px solid var(--gold-dim);
+  border-radius: 2px;
+}
+
+.bio-photo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
 /* ---------- bio narrative stages ---------- */
 
 .bio-stage-overlay {

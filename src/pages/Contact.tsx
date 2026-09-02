@@ -50,7 +50,7 @@ export function Contact() {
       <section className="section contact-detail">
         <div className="container contact-detail__grid">
           <div className="contact-detail__photo">
-            <img src="/images/contact/contact-photo.jpg" alt="Νίκος Τσερκεζίδης" />
+            <img src="/images/contact/contact-photo.jpg" alt="Νίκος Τσερκεζίδης" style={{ objectPosition: '50% 30%' }} />
           </div>
 
           <div className="contact-detail__form-wrap">
