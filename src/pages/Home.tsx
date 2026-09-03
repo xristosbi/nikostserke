@@ -38,25 +38,6 @@ export function Home() {
         </div>
       </VideoScrubSection>
 
-      <section className="stats">
-        <div className="container">
-          <div className="section-head">
-            <div className="eyebrow">Νούμερα</div>
-            <h2 className="section-title">
-              Μερικά <span className="gold-text">Στατιστικά</span>
-            </h2>
-          </div>
-          <div className="stats__grid">
-            {STATS.map((s) => (
-              <div className="stat" key={s.label}>
-                <StatCounter target={s.target} suffix={s.suffix} />
-                <p className="stat__label">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section" style={{ paddingBottom: 0 }}>
         <div className="container section-head">
           <div className="eyebrow">Οι Πυλώνες</div>
@@ -94,6 +75,25 @@ export function Home() {
             <Link className="text-link" to="/vraveuseis">
               Δες όλες τις Βραβεύσεις →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="stats">
+        <div className="container">
+          <div className="section-head">
+            <div className="eyebrow">Νούμερα</div>
+            <h2 className="section-title">
+              Μερικά <span className="gold-text">Στατιστικά</span>
+            </h2>
+          </div>
+          <div className="stats__grid">
+            {STATS.map((s) => (
+              <div className="stat" key={s.label}>
+                <StatCounter target={s.target} suffix={s.suffix} />
+                <p className="stat__label">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

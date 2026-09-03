@@ -52,6 +52,8 @@ const GALLERY_PAGES = Array.from({ length: Math.ceil(GALLERY_PHOTOS.length / PER
   GALLERY_PHOTOS.slice(i * PER_PAGE, i * PER_PAGE + PER_PAGE),
 );
 
+const DISTINCTIONS = Array.from({ length: 8 }, (_, i) => `Placeholder τίτλος βράβευσης ${i + 1}`);
+
 export function Awards() {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(0);
@@ -108,7 +110,7 @@ export function Awards() {
         </div>
       </div>
 
-      <section className="section carousel-section">
+      <section className="section">
         <div className="container">
           <div className="section-head">
             <div className="eyebrow">Φωτογραφικό Αρχείο</div>
@@ -144,6 +146,25 @@ export function Awards() {
                 ›
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div className="eyebrow">Διακρίσεις</div>
+            <h2 className="section-title">
+              Βραβεία & <span className="gold-text">Αναγνωρίσεις</span>
+            </h2>
+          </div>
+          <div className="awards-list__grid">
+            {DISTINCTIONS.map((d, i) => (
+              <div className="awards-list__item" key={d}>
+                <span className="awards-list__num">{String(i + 1).padStart(2, '0')}.</span>
+                <span className="awards-list__title">{d}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

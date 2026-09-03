@@ -81,6 +81,29 @@ export function Bio() {
         </StagedReveal>
       </VideoScrubSection>
 
+      <section className="section bio-intro">
+        <div className="container bio-intro__grid">
+          <div className="bio-intro__text">
+            <div className="eyebrow">Ο Άνθρωπος</div>
+            <h2 className="section-title bio-intro__title">
+              Πέρα Από <span className="gold-text">Την Επιχείρηση</span>
+            </h2>
+            <p className="bio-intro__paragraph">
+              [Placeholder κείμενο] Ο Νίκος Τσερκεζίδης συνδυάζει την τεχνική του καταγωγή με ένα διαρκές όραμα για
+              βιώσιμη ανάπτυξη, συνδυάζοντας πειθαρχία, εξειδίκευση και κοινωνική ευαισθησία σε κάθε βήμα της πορείας
+              του.
+            </p>
+            <p className="bio-intro__paragraph">
+              [Placeholder κείμενο] Πέρα από τους αριθμούς και τις διακρίσεις, παραμένει προσηλωμένος στις αξίες που
+              έθεσαν τα θεμέλια της επιχειρηματικής του πορείας από το 2003 μέχρι σήμερα.
+            </p>
+          </div>
+          <div className="bio-intro__photo">
+            <img src="/images/awards/hero-institutional.jpg" alt="Νίκος Τσερκεζίδης" />
+          </div>
+        </div>
+      </section>
+
       <CtaBlock />
     </div>
   );

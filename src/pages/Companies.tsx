@@ -73,6 +73,22 @@ export function Companies() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container companies-note">
+          <div className="section-head">
+            <div className="eyebrow">Το Όραμα</div>
+            <h2 className="section-title">
+              Τρεις Εταιρείες, <span className="gold-text">Ένα Όραμα</span>
+            </h2>
+          </div>
+          <p className="companies-note__text">
+            [Placeholder κείμενο] Οι τρεις εταιρείες συνθέτουν μια ενιαία επιχειρηματική φιλοσοφία — από την
+            ανακύκλωση και την κυκλική οικονομία, έως την πράσινη ενέργεια και την πολυτελή κατοικία — με κοινό άξονα
+            τη βιώσιμη ανάπτυξη και τη μακροπρόθεσμη αξία.
+          </p>
+        </div>
+      </section>
+
       <CtaBlock />
     </div>
   );
