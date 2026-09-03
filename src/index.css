@@ -457,12 +457,11 @@ button {
 .bio-photo {
   position: relative;
   z-index: 2;
-  padding: clamp(5.5rem, 11vw, 7.5rem) 0 0;
 }
 
 .bio-photo__frame {
   width: 100%;
-  height: clamp(420px, 50vh, 600px);
+  height: clamp(550px, 62vh, 700px);
   padding: 6px;
   border: 1px solid var(--gold-dim);
   box-sizing: border-box;
