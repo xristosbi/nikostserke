@@ -49,10 +49,8 @@ export function Bio() {
   return (
     <div className="page">
       <section className="bio-photo">
-        <div className="container">
-          <div className="bio-photo__frame">
-            <img className="bio-photo__img" src="/images/bio/bio-photo.jpg" alt="Νίκος Τσερκεζίδης στο γραφείο του" />
-          </div>
+        <div className="bio-photo__frame">
+          <img className="bio-photo__img" src="/images/bio/bio-photo.jpg" alt="Νίκος Τσερκεζίδης στο γραφείο του" />
         </div>
       </section>
 

@@ -457,22 +457,21 @@ button {
 .bio-photo {
   position: relative;
   z-index: 2;
-  padding: clamp(6.5rem, 14vw, 10rem) 0 clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(5.5rem, 11vw, 7.5rem) 0 0;
 }
 
 .bio-photo__frame {
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 100%;
+  height: clamp(420px, 50vh, 600px);
   padding: 6px;
   border: 1px solid var(--gold-dim);
-  border-radius: 2px;
+  box-sizing: border-box;
 }
 
 .bio-photo__img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   object-position: 50% 42%;
 }
@@ -597,23 +596,36 @@ button {
   z-index: 2;
 }
 
-.gallery__img {
+.gallery__img-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: blur(40px) brightness(0.4) saturate(1.15);
+  transform: scale(1.15);
+  z-index: 1;
+}
+
+.gallery__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
 }
 
 .gallery__scrim {
   position: absolute;
   inset: 0;
+  z-index: 3;
   background: linear-gradient(to top, rgba(7, 6, 10, 0.92) 0%, rgba(7, 6, 10, 0.25) 45%, rgba(7, 6, 10, 0.55) 100%);
 }
 
 .gallery__content {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   width: 100%;
   padding: 0 clamp(1.25rem, 5vw, 5rem) clamp(3rem, 8vw, 6rem);
 }

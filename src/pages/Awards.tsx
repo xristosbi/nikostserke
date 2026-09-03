@@ -69,7 +69,8 @@ export function Awards() {
       <div className="gallery">
         {SLIDES.map((s, i) => (
           <div className={`gallery__slide ${i === index ? 'active' : ''}`} key={s.category}>
-            <img className="gallery__img" src={s.img} alt={s.category} style={{ objectPosition: s.imgPosition }} />
+            <img className="gallery__img-bg" src={s.img} alt="" aria-hidden="true" style={{ objectPosition: s.imgPosition }} />
+            <img className="gallery__img" src={s.img} alt={s.category} />
             <div className="gallery__scrim" />
             <div className="gallery__content">
               <div className="eyebrow">{s.category}</div>
