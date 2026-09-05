@@ -32,25 +32,30 @@ const SLIDES = [
   },
 ];
 
-const GALLERY_PHOTOS = [
-  '/images/awards/gallery-01.jpg',
-  '/images/awards/gallery-02.jpg',
-  '/images/awards/gallery-03.jpg',
-  '/images/awards/gallery-04.jpg',
-  '/images/awards/gallery-05.jpg',
-  '/images/awards/gallery-06.jpg',
-  '/images/awards/gallery-07.jpg',
-  '/images/awards/gallery-08.jpg',
-  '/images/awards/gallery-09.jpg',
-  '/images/awards/gallery-10.jpg',
-  '/images/awards/gallery-11.jpg',
-  '/images/awards/gallery-12.jpg',
-];
+const GENERIC_CAPTION = 'Στιγμιότυπο';
 
-const PER_PAGE = 3;
-const GALLERY_PAGES = Array.from({ length: Math.ceil(GALLERY_PHOTOS.length / PER_PAGE) }, (_, i) =>
-  GALLERY_PHOTOS.slice(i * PER_PAGE, i * PER_PAGE + PER_PAGE),
-);
+const p = (n: number, caption = GENERIC_CAPTION) => ({
+  src: `/images/awards/gallery-${String(n).padStart(2, '0')}.jpg`,
+  caption,
+});
+
+const GALLERY_PAGES = [
+  [p(1), p(2, 'Βράβευση από την AHEPA Hellas και τον Ροταριανό Όμιλο, παρουσία πρώην επικεφαλής ισραηλινής υπηρεσίας'), p(3)],
+  [p(4), p(5, 'Με το Επιμελητήριο Χαλκιδικής'), p(6, 'Με στελέχη της ΕΜΑΚ')],
+  [p(7), p(8, 'Συνάντηση με τον Πρόεδρο της Κροατίας'), p(9)],
+  [p(10, 'Με τον Ροταριανό Όμιλο'), p(11), p(12)],
+  [p(13), p(14), p(15)],
+  [p(16, 'Με τον Άδωνη Γεωργιάδη'), p(17)],
+  [p(18), p(19), p(20)],
+  [p(21), p(22), p(23)],
+  [p(24), p(25), p(26)],
+  [p(27), p(28), p(29)],
+  [p(30), p(31, 'Με τον Βαγγέλη Μαρινάκη')],
+  [p(32), p(33), p(34)],
+  [p(35), p(36), p(37)],
+  [p(39, 'Με τον Υπουργό Χρυσοχοΐδη'), p(40, 'Στην Έκθεση Θεσσαλονίκης 2026')],
+  [p(41), p(42)],
+];
 
 const DISTINCTIONS = Array.from({ length: 8 }, (_, i) => `Placeholder τίτλος βράβευσης ${i + 1}`);
 
@@ -124,10 +129,10 @@ export function Awards() {
               <div className="carousel__track" style={{ transform: `translateX(-${page * 100}%)` }}>
                 {GALLERY_PAGES.map((photos, pi) => (
                   <div className="carousel__page" key={pi}>
-                    {photos.map((photo, pj) => (
-                      <figure className="carousel__item" key={photo}>
-                        <img className="carousel__img" src={photo} alt={`Φωτογραφία ${pi * PER_PAGE + pj + 1}`} />
-                        <figcaption className="carousel__caption">Τίτλος φωτογραφίας</figcaption>
+                    {photos.map((photo) => (
+                      <figure className="carousel__item" key={photo.src}>
+                        <img className="carousel__img" src={photo.src} alt={photo.caption} />
+                        <figcaption className="carousel__caption">{photo.caption}</figcaption>
                       </figure>
                     ))}
                   </div>
