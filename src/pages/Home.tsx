@@ -8,7 +8,7 @@ import { CtaBlock } from '../components/CtaBlock';
 const STATS = [
   { target: 1997, suffix: '', label: 'Αρχή Επιχειρηματικής Πορείας στη Νικήτη Χαλκιδικής' },
   { target: 3, suffix: '', label: 'Επιχειρηματικοί Άξονες: Ανακύκλωση, Πράσινη Ενέργεια, Πολυτελής Κατοικία' },
-  { target: 20, suffix: '+', label: 'Χρόνια Τεχνικής, Επιχειρηματικής και Κοινωνικής Δράσης' },
+  { target: 29, suffix: '+', label: 'Χρόνια Τεχνικής, Επιχειρηματικής και Κοινωνικής Δράσης' },
 ];
 
 const AWARD_HIGHLIGHTS = [
