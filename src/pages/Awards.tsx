@@ -56,7 +56,16 @@ const GALLERY_PAGES = [
   [p(41, 'Στην Έκθεση Θεσσαλονίκης 2026'), p(42, 'Έκθεση Θεσσαλονίκης 2026')],
 ];
 
-const DISTINCTIONS = Array.from({ length: 8 }, (_, i) => `Placeholder τίτλος βράβευσης ${i + 1}`);
+const DISTINCTIONS = [
+  'Βράβευση από την AHEPA Hellas, District Chapter 53, Marousi',
+  'Τιμητική αναγνώριση από το Ίδρυμα «Ελπίδα» για την κοινωνική προσφορά',
+  'Βράβευση Επιχειρηματικής Αριστείας από το Επιμελητήριο Χαλκιδικής',
+  'Τιμητική διάκριση από την Ελληνική Αστυνομία, Διεύθυνση Χαλκιδικής',
+  'Συμμετοχή στο The Economist «The World Ahead» Gala Dinner 2021',
+  'Συμμετοχή στο 15ο Cyprus Summit του The Economist, υπό την αιγίδα της Bank of Cyprus',
+  'Συμμετοχή στο The Economist Croatia Business Summit, παρουσία του Προέδρου της Κροατίας',
+  'Συνάντηση με τον Ιταλό Πρωθυπουργό Ματέο Ρέντσι',
+];
 
 export function Awards() {
   const [index, setIndex] = useState(0);
