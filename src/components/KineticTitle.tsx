@@ -17,9 +17,13 @@ export function KineticTitle({ text, className = '', delay = 0.2 }: { text: stri
 
   return (
     <h1 ref={ref} className={`kinetic-title ${className}`}>
-      {text.split('').map((c, i) => (
-        <span className="char-mask" key={i}>
-          <span className="char">{c === ' ' ? ' ' : c}</span>
+      {text.split(' ').map((word, wi) => (
+        <span className="kinetic-word" key={wi}>
+          {word.split('').map((c, i) => (
+            <span className="char-mask" key={i}>
+              <span className="char">{c}</span>
+            </span>
+          ))}
         </span>
       ))}
     </h1>

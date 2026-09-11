@@ -292,6 +292,13 @@ button {
   gap: 0 0.02em;
 }
 
+.kinetic-title .kinetic-word {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0 0.02em;
+  margin: 0 0.13em;
+}
+
 .kinetic-title .char-mask {
   display: inline-block;
   overflow: hidden;
@@ -299,6 +306,12 @@ button {
 
 .kinetic-title .char {
   display: inline-block;
+}
+
+@media (max-width: 420px) {
+  .kinetic-title {
+    font-size: clamp(2.1rem, 11vw, 8rem);
+  }
 }
 
 /* ---------- display heading outline (shared across all big headings) ---------- */
@@ -450,6 +463,12 @@ button {
   margin-top: 0.8rem;
   font-size: clamp(2rem, 5vw, 3.4rem);
   overflow-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(1.65rem, 7vw, 3.4rem);
+  }
 }
 
 /* ---------- bio: top photo section ---------- */
@@ -1076,11 +1095,12 @@ button {
 
 @media (max-width: 640px) {
   .carousel__page {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
   }
   .carousel__caption {
-    font-size: 0.72rem;
+    font-size: 0.85rem;
   }
 }
 

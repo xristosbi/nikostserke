@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { CtaBlock } from '../components/CtaBlock';
 
 const SLIDES = [
@@ -39,22 +39,57 @@ const p = (n: number, caption = GENERIC_CAPTION) => ({
   caption,
 });
 
-const GALLERY_PAGES = [
-  [p(1, 'Βράβευση AHEPA Hellas'), p(2, 'Βράβευση από την AHEPA Hellas και τον Ροταριανό Όμιλο, παρουσία πρώην επικεφαλής ισραηλινής υπηρεσίας'), p(3)],
-  [p(4), p(5, 'Με το Επιμελητήριο Χαλκιδικής'), p(6, 'Με στελέχη της ΕΜΑΚ')],
-  [p(7, 'Βράβευση AHEPA Hellas'), p(8, 'Economist Croatia Business Summit – συνάντηση με τον Πρόεδρο της Κροατίας'), p(9, 'Τελετή βράβευσης AHEPA Hellas')],
-  [p(10, 'Ροταριανός Όμιλος Θεσσαλονίκης'), p(11, 'Βράβευση AHEPA Hellas, Παράρτημα Μαρουσίου'), p(12, 'Βράβευση AHEPA Hellas')],
-  [p(13), p(14), p(15)],
-  [p(16, 'Με τον Άδωνη Γεωργιάδη'), p(17), p(18, 'Συνέδριο Economist – The World Ahead Gala Dinner 2021')],
-  [p(19), p(20), p(21)],
-  [p(22, 'Συνέδριο Economist – 15th Cyprus Summit'), p(23), p(24)],
-  [p(25), p(26), p(27)],
-  [p(28, 'Με τον Ιταλό Πρωθυπουργό Ματέο Ρέντσι'), p(29), p(30)],
-  [p(31, 'Με τον Βαγγέλη Μαρινάκη'), p(32), p(33)],
-  [p(34), p(35), p(36)],
-  [p(37), p(39, 'Με τον Υπουργό Χρυσοχοΐδη'), p(40, 'Στην Έκθεση Θεσσαλονίκης 2026')],
-  [p(41, 'Στην Έκθεση Θεσσαλονίκης 2026'), p(42, 'Έκθεση Θεσσαλονίκης 2026')],
+const GALLERY_PHOTOS = [
+  p(1, 'Βράβευση AHEPA Hellas'),
+  p(2, 'Βράβευση από την AHEPA Hellas και τον Ροταριανό Όμιλο, παρουσία πρώην επικεφαλής ισραηλινής υπηρεσίας'),
+  p(3),
+  p(4),
+  p(5, 'Με το Επιμελητήριο Χαλκιδικής'),
+  p(6, 'Με στελέχη της ΕΜΑΚ'),
+  p(7, 'Βράβευση AHEPA Hellas'),
+  p(8, 'Economist Croatia Business Summit – συνάντηση με τον Πρόεδρο της Κροατίας'),
+  p(9, 'Τελετή βράβευσης AHEPA Hellas'),
+  p(10, 'Ροταριανός Όμιλος Θεσσαλονίκης'),
+  p(11, 'Βράβευση AHEPA Hellas, Παράρτημα Μαρουσίου'),
+  p(12, 'Βράβευση AHEPA Hellas'),
+  p(13),
+  p(14),
+  p(15),
+  p(16, 'Με τον Άδωνη Γεωργιάδη'),
+  p(17),
+  p(18, 'Συνέδριο Economist – The World Ahead Gala Dinner 2021'),
+  p(19),
+  p(20),
+  p(21),
+  p(22, 'Συνέδριο Economist – 15th Cyprus Summit'),
+  p(23),
+  p(24),
+  p(25),
+  p(26),
+  p(27),
+  p(28, 'Με τον Ιταλό Πρωθυπουργό Ματέο Ρέντσι'),
+  p(29),
+  p(30),
+  p(31, 'Με τον Βαγγέλη Μαρινάκη'),
+  p(32),
+  p(33),
+  p(34),
+  p(35),
+  p(36),
+  p(37),
+  p(39, 'Με τον Υπουργό Χρυσοχοΐδη'),
+  p(40, 'Στην Έκθεση Θεσσαλονίκης 2026'),
+  p(41, 'Στην Έκθεση Θεσσαλονίκης 2026'),
+  p(42, 'Έκθεση Θεσσαλονίκης 2026'),
 ];
+
+function chunk<T>(items: T[], size: number): T[][] {
+  const pages: T[][] = [];
+  for (let i = 0; i < items.length; i += size) pages.push(items.slice(i, i + size));
+  return pages;
+}
+
+const MOBILE_QUERY = '(max-width: 640px)';
 
 const DISTINCTIONS = [
   'Βράβευση από την AHEPA Hellas, District Chapter 53, Marousi',
@@ -70,6 +105,20 @@ const DISTINCTIONS = [
 export function Awards() {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(() => (window.matchMedia(MOBILE_QUERY).matches ? 1 : 3));
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const update = () => setItemsPerPage(mq.matches ? 1 : 3);
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  const GALLERY_PAGES = useMemo(() => chunk(GALLERY_PHOTOS, itemsPerPage), [itemsPerPage]);
+
+  useEffect(() => {
+    setPage(0);
+  }, [itemsPerPage]);
 
   const go = (dir: number) => {
     setIndex((i) => (i + dir + SLIDES.length) % SLIDES.length);
