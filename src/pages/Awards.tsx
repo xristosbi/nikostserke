@@ -133,6 +133,7 @@ export function Awards() {
   return (
     <div className="page">
       <section className="awards-hero">
+        <img className="awards-hero__backdrop" src="/images/awards/hero-environment.jpg" alt="" aria-hidden="true" />
         <img className="awards-hero__bg" src="/images/awards/hero-environment.jpg" alt="" aria-hidden="true" />
         <div className="awards-hero__scrim" />
         <div className="container awards-hero__content">

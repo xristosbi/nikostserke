@@ -120,8 +120,8 @@ export function Bio() {
             </p>
             <p className="bio-intro__paragraph">
               {t({
-                el: 'Πέρα από τους αριθμούς και τις διακρίσεις, παραμένει προσηλωμένος στις αξίες που έθεσαν τα θεμέλια της επιχειρηματικής του πορείας από το 2003 μέχρι σήμερα.',
-                en: 'Beyond the figures and the distinctions, he remains committed to the values that laid the foundations of his business journey from 2003 to the present day.',
+                el: 'Πέρα από τους αριθμούς και τις διακρίσεις, παραμένει προσηλωμένος στις αξίες που έθεσαν τα θεμέλια της επιχειρηματικής του πορείας από το 1997 μέχρι σήμερα.',
+                en: 'Beyond the figures and the distinctions, he remains committed to the values that laid the foundations of his business journey from 1997 to the present day.',
               })}
             </p>
           </div>

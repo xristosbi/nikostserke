@@ -35,7 +35,8 @@ const STATS = [
 
 const AWARD_HIGHLIGHTS = [
   {
-    img: '/images/awards/gallery-01.jpg',
+    img: '/images/awards/gallery-02.jpg',
+    imgPosition: '50% 20%',
     category: { el: 'Κοινωνική Προσφορά', en: 'Social Contribution' },
     caption: {
       el: 'Στήριξη ιδρυμάτων και κοινωνικών φορέων — τιμητική αναγνώριση από το Ίδρυμα «Ελπίδα».',
@@ -43,7 +44,8 @@ const AWARD_HIGHLIGHTS = [
     },
   },
   {
-    img: '/images/awards/gallery-06.jpg',
+    img: '/images/home/teaser-book.jpg',
+    imgPosition: '50% 30%',
     category: { el: 'Θεσμική Στήριξη', en: 'Institutional Support' },
     caption: {
       el: 'Τιμητική διάκριση από την Ελληνική Αστυνομία, Διεύθυνση Χαλκιδικής.',
@@ -93,7 +95,12 @@ export function Home() {
           <div className="awards-teaser__grid">
             {AWARD_HIGHLIGHTS.map((h) => (
               <div className="awards-teaser__card" key={h.category.el}>
-                <img className="awards-teaser__img" src={h.img} alt={t(h.category)} />
+                <img
+                  className="awards-teaser__img"
+                  src={h.img}
+                  alt={t(h.category)}
+                  style={{ objectPosition: h.imgPosition }}
+                />
                 <div className="awards-teaser__scrim" />
                 <div className="awards-teaser__content">
                   <div className="eyebrow">{t(h.category)}</div>
