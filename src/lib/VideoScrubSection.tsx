@@ -48,6 +48,13 @@ export function VideoScrubSection({
           overlayRef.current?.style.setProperty('--progress', String(self.progress));
         },
       });
+      // On a real network the video's metadata can finish loading well after
+      // the route-level ScrollTrigger.refresh() already ran (that one fires
+      // on a single rAF right after navigation, not after every lazily-created
+      // trigger exists). Refresh again now so this trigger - and any other
+      // trigger whose measurements depended on this section's final layout -
+      // picks up accurate bounds instead of whatever existed at that first pass.
+      ScrollTrigger.refresh();
     };
 
     // Safari/iOS only allow programmatic seeking after a play() has been kicked off once.
