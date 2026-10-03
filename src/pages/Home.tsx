@@ -39,8 +39,8 @@ const AWARD_HIGHLIGHTS = [
     imgPosition: '50% 20%',
     category: { el: 'Κοινωνική Προσφορά', en: 'Social Contribution' },
     caption: {
-      el: 'Στήριξη ιδρυμάτων και κοινωνικών φορέων — τιμητική αναγνώριση από το Ίδρυμα «Ελπίδα».',
-      en: 'Supporting foundations and social organizations — honorary recognition from the “Elpida” Foundation.',
+      el: 'Βράβευση AHEPA Hellas',
+      en: 'AHEPA Hellas Award',
     },
   },
   {
@@ -48,8 +48,8 @@ const AWARD_HIGHLIGHTS = [
     imgPosition: '50% 30%',
     category: { el: 'Θεσμική Στήριξη', en: 'Institutional Support' },
     caption: {
-      el: 'Τιμητική διάκριση από την Ελληνική Αστυνομία, Διεύθυνση Χαλκιδικής.',
-      en: 'Honorary distinction from the Hellenic Police, Chalkidiki Directorate.',
+      el: 'Διεθνής Συνάντηση',
+      en: 'International Meeting',
     },
   },
 ];
