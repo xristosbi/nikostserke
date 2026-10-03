@@ -705,35 +705,14 @@ button {
   background: var(--ink);
 }
 
-.awards-hero__backdrop {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(40px) brightness(0.4) saturate(1.15);
-  transform: scale(1.15);
-}
-
-/* Portrait photo: shown whole (contain) over its own blurred backdrop on
-   wide screens, so it isn't cropped to a tight, soft close-up. */
 .awards-hero__bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: brightness(0.85) saturate(1.05);
-}
-
-@media (max-width: 780px) {
-  .awards-hero__backdrop {
-    display: none;
-  }
-  .awards-hero__bg {
-    object-fit: cover;
-    object-position: 50% 15%;
-  }
+  object-fit: cover;
+  object-position: 50% 15%;
+  filter: brightness(0.8) saturate(1.05);
 }
 
 .awards-hero__scrim {
