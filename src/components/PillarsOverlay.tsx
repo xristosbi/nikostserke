@@ -1,29 +1,40 @@
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLang } from '../lib/i18n';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PILLARS = [
   {
-    eyebrow: '01 — Ανακύκλωση',
+    eyebrow: { el: '01 — Ανακύκλωση', en: '01 — Recycling' },
     name: 'Recycle Greece',
-    desc: 'Ανακύκλωση, κυκλική οικονομία, πιστοποιημένα υλικά.',
+    desc: {
+      el: 'Ανακύκλωση, κυκλική οικονομία, πιστοποιημένα υλικά.',
+      en: 'Recycling, circular economy, certified materials.',
+    },
   },
   {
-    eyebrow: '02 — Πράσινη Ενέργεια',
+    eyebrow: { el: '02 — Πράσινη Ενέργεια', en: '02 — Green Energy' },
     name: 'DELOS Energy',
-    desc: 'Διαχείριση αποβλήτων, πράσινη ενεργειακή αξιοποίηση.',
+    desc: {
+      el: 'Διαχείριση αποβλήτων, πράσινη ενεργειακή αξιοποίηση.',
+      en: 'Waste management and green energy recovery.',
+    },
   },
   {
-    eyebrow: '03 — Πολυτελής Κατοικία',
+    eyebrow: { el: '03 — Πολυτελής Κατοικία', en: '03 — Luxury Housing' },
     name: 'MYAETOS Luxury Housing',
-    desc: 'Πολυτελείς κατοικίες, Golden Visa, τεχνική ανάπτυξη.',
+    desc: {
+      el: 'Πολυτελείς κατοικίες, Golden Visa, τεχνική ανάπτυξη.',
+      en: 'Luxury residences, Golden Visa, technical development.',
+    },
   },
 ];
 
 export function PillarsOverlay({ triggerId }: { triggerId: string }) {
   const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const { t } = useLang();
 
   useLayoutEffect(() => {
     const trigger = document.getElementById(triggerId);
@@ -65,9 +76,9 @@ export function PillarsOverlay({ triggerId }: { triggerId: string }) {
             refs.current[i] = el;
           }}
         >
-          <div className="eyebrow pillar__eyebrow">{p.eyebrow}</div>
+          <div className="eyebrow pillar__eyebrow">{t(p.eyebrow)}</div>
           <h3 className="pillar__name">{p.name}</h3>
-          <p className="pillar__desc">{p.desc}</p>
+          <p className="pillar__desc">{t(p.desc)}</p>
         </div>
       ))}
     </>
