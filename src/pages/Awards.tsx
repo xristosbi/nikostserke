@@ -7,9 +7,33 @@ const GENERIC_CAPTION: Tr = { el: 'Στιγμιότυπο', en: 'Snapshot' };
 const AHEPA: Tr = { el: 'Βράβευση AHEPA Hellas', en: 'AHEPA Hellas award' };
 const EXPO_2026: Tr = { el: 'Στην Έκθεση Θεσσαλονίκης 2026', en: 'At the Thessaloniki International Fair 2026' };
 
+// ---- Captions for the 11 photos added after the first triad (easy to edit in one place) ----
+// "Έκθεση Εφοπλιστών" / "Κατάδυση" are best guesses from the source file names (not client-confirmed).
+const SHIPOWNERS_EXPO: Tr = { el: 'Έκθεση Εφοπλιστών', en: "Shipowners' Exhibition" };
+const ND_CONFERENCE: Tr = { el: 'Συνέδριο Νέας Δημοκρατίας', en: 'New Democracy Conference' };
+const WITH_PIERRAKAKIS: Tr = {
+  el: 'Με τον Υπουργό Οικονομίας Κυριάκο Πιερρακάκη',
+  en: 'With Minister of Economy Kyriakos Pierrakakis',
+};
+const WITH_DENDIAS: Tr = { el: 'Με τον Νίκο Δένδια', en: 'With Nikos Dendias' };
+const SFAKIANAKIS: Tr = {
+  el: 'Με τον αγαπητό φίλο Μανώλη Σφακιανάκη, αντιστράτηγο εν αποστρατεία της Ελληνικής Αστυνομίας, ιδρυτή και πρώην επικεφαλής της Δίωξης Ηλεκτρονικού Εγκλήματος.\n\nΥπηρέτησε στην Ελληνική Αστυνομία για 34 χρόνια, από τα οποία τα 23 ασχολήθηκε με τη διερεύνηση ηλεκτρονικών εγκλημάτων. Συνέδεσε το όνομά του με την αντιμετώπιση του διαδικτυακού εγκλήματος και την ενημέρωση των πολιτών για την ασφαλή χρήση του διαδικτύου.\n\nΕίναι επίσης ιδρυτής του Διεθνούς Ινστιτούτου Κυβερνοασφάλειας — CSI Institute, με εκπαιδευτικούς και κοινωφελείς σκοπούς, ιδιαίτερα στην πρόληψη και την προστασία από τους κινδύνους του διαδικτύου.',
+  en: 'With my dear friend Manolis Sfakianakis, retired Lieutenant General of the Hellenic Police, founder and former head of the Cyber Crime Unit.\n\nHe served in the Hellenic Police for 34 years, 23 of which were devoted to investigating cybercrime. His name is associated with combating online crime and informing citizens about the safe use of the internet.\n\nHe is also the founder of the International Cyber Security Institute — CSI Institute, with educational and charitable purposes, particularly in the prevention of and protection from internet risks.',
+};
+const DIVE: Tr = { el: 'Κατάδυση', en: 'Dive' };
+const JERUSALEM: Tr = { el: 'Πανάγιος Τάφος, Ιεροσόλυμα', en: 'Holy Sepulchre, Jerusalem' };
+
 const p = (n: number, caption: Tr = GENERIC_CAPTION) => ({
   src: `/images/awards/gallery-${String(n).padStart(2, '0')}.jpg`,
   caption,
+  long: false,
+});
+
+// New photos use their own file names (not the gallery-NN numbering) to avoid renumbering existing files.
+const g = (file: string, caption: Tr, long = false) => ({
+  src: `/images/awards/${file}.jpg`,
+  caption,
+  long,
 });
 
 const GALLERY_PHOTOS = [
@@ -19,6 +43,19 @@ const GALLERY_PHOTOS = [
     en: 'Award from AHEPA Hellas and the Rotary Club, in the presence of a former head of an Israeli agency',
   }),
   p(3),
+  // ---- 11 new photos, inserted after the first triad (start of triad 2) ----
+  g('gallery-new-01', SHIPOWNERS_EXPO),
+  g('gallery-new-02', SHIPOWNERS_EXPO),
+  g('gallery-new-03', SHIPOWNERS_EXPO),
+  g('gallery-new-04', ND_CONFERENCE),
+  g('gallery-new-05', ND_CONFERENCE),
+  g('gallery-new-06', WITH_PIERRAKAKIS),
+  g('gallery-new-07', WITH_DENDIAS),
+  g('gallery-new-08', SFAKIANAKIS, true),
+  g('gallery-new-09', DIVE),
+  g('gallery-new-10', JERUSALEM),
+  g('gallery-new-11', JERUSALEM),
+  // ---- existing photos continue in their original relative order ----
   p(4),
   p(5, { el: 'Με το Επιμελητήριο Χαλκιδικής', en: 'With the Chalkidiki Chamber of Commerce' }),
   p(6, { el: 'Με στελέχη της ΕΜΑΚ', en: 'With members of EMAK (Special Disaster Response Unit)' }),
@@ -168,7 +205,9 @@ export function Awards() {
                     {photos.map((photo) => (
                       <figure className="carousel__item" key={photo.src}>
                         <img className="carousel__img" src={photo.src} alt={t(photo.caption)} />
-                        <figcaption className="carousel__caption">{t(photo.caption)}</figcaption>
+                        <figcaption className={`carousel__caption${photo.long ? ' carousel__caption--long' : ''}`}>
+                          {t(photo.caption)}
+                        </figcaption>
                       </figure>
                     ))}
                   </div>

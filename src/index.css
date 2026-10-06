@@ -1017,6 +1017,18 @@ button {
   font-size: 0.85rem;
   color: var(--cream-dim);
   text-align: center;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
+/* Longer multi-paragraph captions (e.g. the Sfakianakis slide) get a capped,
+   scrollable area instead of growing the whole carousel row to fit them. */
+.carousel__caption--long {
+  max-height: 7.8em;
+  overflow-y: auto;
+  text-align: left;
+  padding-right: 0.4rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel__controls {
